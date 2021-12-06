@@ -4,7 +4,6 @@ import React, {useState, useEffect} from 'react'
 
 // TODOS
 // featured meals
-// search meals 
 // by using this free api: (https://www.themealdb.com/api.php)
 
 const API_URL = "https://www.themealdb.com/api/json/v1/1/random.php"
@@ -26,11 +25,43 @@ const RandomMeal=()=> {
 
     if(!meal) return null;
 
+    const {
+        strMeal,
+        strMealThumb,
+        strInstructions,
+        strArea,
+        strCategory
+    } = meal;
+
     return (
-        <div>
-         <h2> {meal.strMeal}</h2>  
+<section className="container">
+  <h2>Featured Meal</h2>
+   <div className="meal">
+    <div className="meal-img"> 
+        <img src={strMealThumb} alt={strMeal}/>
+    </div>
+    <div className="meal-details"> 
+           <h3 className="meal-title"> {strMeal}</h3>
+           <p className="meal-instruction">
+               {strInstructions.substring(0,200)+ "..."}
+            </p>
+           <ul className="meal-info">
+               <li>
+                   Category:
+                   <strong>{strCategory}</strong>
+               </li>
+               <li>
+                   Area:
+                   <strong>{strArea}</strong>
+               </li>
+           </ul>
+           <button className="btn">
+               View Recipe<i className="fas fa-arrow-alt-circle-rught"></i>
+           </button>
         </div>
-    )
-}
+ </div>
+ </section>
+    );
+};
 
 export default RandomMeal
