@@ -7,7 +7,8 @@ express()
 
  .use(express.json())
 
- // ============endpoints============
+ // ============Routs for Endpoints============//
+
 
   .listen(PORT, function() {
   console.info('🌍 Listening on port ' + PORT);

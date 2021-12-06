@@ -1,0 +1,12 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Lora:ital,wght@1,400;1,500;1,600&family=Poppins:ital,wght@0,400;1,500&family=Varela+Round&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+
+    background-color: #C4A4D4;
+    font-family: "poppins", sans-serif;
+}
