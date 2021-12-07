@@ -1,7 +1,8 @@
 
 import React, {useState, useEffect} from 'react'
+import "./randomMeal.css"
 
-
+import "./GlobalStyles"
 // TODOS
 // featured meals
 // by using this free api: (https://www.themealdb.com/api.php)

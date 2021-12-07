@@ -1,10 +1,15 @@
 import RandomMeal from "./RandomMeal"
+import "./GlobalStyles"
+import Topbar from "./Topbar";
 
 function App() {
   return (
+    
     <div className="App">
-            
-         <RandomMeal/>
+
+      <Topbar/>
+
+      <RandomMeal/>
     
     </div>
   );
