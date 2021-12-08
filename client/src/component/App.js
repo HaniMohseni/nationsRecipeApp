@@ -6,6 +6,7 @@ import RandomMeal from "./RandomMeal"
 import Topbar from "./Topbar";
 import Home from '../pages/Home';
 import Login from '../pages/Login';
+import Register from '../pages/Register';
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
     <div >
 
       <Topbar/>
-      <Login/>
+      <Register/>
+      {/* <Login/> */}
+      
 
       {/* <RandomMeal/> */}
       
