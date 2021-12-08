@@ -36,7 +36,7 @@ const RandomMeal=()=> {
 
     return (
 <section className="container">
-  <h2>Featured Meal</h2>
+  {/* <h2>Featured Meal</h2> */}
    <div className="meal">
     <div className="meal-img"> 
         <img src={strMealThumb} alt={strMeal}/>
