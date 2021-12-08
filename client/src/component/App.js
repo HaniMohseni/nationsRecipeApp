@@ -1,13 +1,14 @@
 import React from 'react';
-import { BrowserRouter as Browser, Switch, Route, Router, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 import styled from 'styled-components';
 import "./GlobalStyles"
-import RandomMeal from "./RandomMeal"
 import Topbar from "./Topbar";
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
+import Search from '../pages/Search';
+import FeaturedMeal from '../pages/FeaturedMeal';
 
 function App() {
   const user = true;
@@ -16,20 +17,17 @@ function App() {
     <Router >
       <Topbar/>
 
-      <Switch>
-            <Route exact path="/">
-               <Home/>
-           </Route>
+      <Routes>
+            <Route  path="/" element={<Home />}/>
+            <Route  path="/Register" element={<Register />}/>
+            <Route  path="/Logout" element={<Login />}/>
+            <Route  path="/Search" element={<Search />}/>
+            <Route  path="/FeaturedMeal" element={<FeaturedMeal />}/>
+            
 
-           <Route exact path="/Register">
-             {user ? <Home/> : <Register/>}
-           </Route>
-
-           <Route exact path="/Login">
-              {user ? <Home/> : <Login/>}
-            </Route>
-
-      </Switch>
+                     
+             {/* {user ? <Home/> : <Register/>} */}
+      </Routes>
            
     </Router>
     

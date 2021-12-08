@@ -8,6 +8,8 @@ const Topbar=()=> {
     return (
         
             <Wrapper>
+
+
                <TopLeft>
                    
                  <IconeDiv>
@@ -22,27 +24,53 @@ const Topbar=()=> {
                       </IDiv>
                  </IconeDiv>
                </TopLeft>
-                 <TopCenter>
+
+
+
+                 <TopCenter> 
+
+                 <NavigationList>
                     
                        <LiDiv>
                              <NavigationLink to="/" >Home</NavigationLink>
                        </LiDiv>
+
                        <LiDiv>
-                           <NavigationLink to="/About">ABOUT</NavigationLink>
+                           <NavigationLink to="/FeaturedMeal">Featured Meal</NavigationLink>
                        </LiDiv>
+
                        <LiDiv>
-                          <NavigationLink to="/Contact"> CONTACT</NavigationLink>
+                           <NavigationLink to="/Search">SEARCH </NavigationLink>
+                       </LiDiv>
+
+                       <LiDiv>
+                           <NavigationLink to="/Contact"> CONTACT</NavigationLink>
+                      </LiDiv>
+
+                 </NavigationList>
+
+                  </TopCenter>
+
+
+                  <TopRight>
+
+                     <NavigationList>
+
+                        <LiDiv>
+                          <NavigationLink to="/Register"> Register</NavigationLink>
                         </LiDiv>
-                       <LiDiv>
+
+                        <LiDiv>
                            <NavigationLink to="/Logout">LOGOUT</NavigationLink>
                         </LiDiv>
 
-                        
+                     </NavigationList>
+                      
+                      
 
-                 <TopRight>
 
-                   </TopRight>
-               </TopCenter>
+                 </TopRight>
+
             </Wrapper>
             
        
@@ -90,7 +118,14 @@ justify-content:center;
 
 `;
 
+const NavigationList = styled.ul`
+  list-style-type: none;
+  display: flex;
+`;
+
+
 const LiDiv = styled.li`
+  list-style-type: none;
 margin:20px;
 font-size:18px;
 font-weight: 300;
@@ -118,7 +153,7 @@ const NavigationLink = styled(NavLink)`
   text-decoration: none;
   padding: 0 16px;
   &.active {
-    color: ${COLORS.secondary};
+    color: black;
   }
   &:after {
     content: '';
