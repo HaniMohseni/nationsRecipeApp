@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Topbar=()=> {
+    const user = true;
     return (
         
             <Wrapper>
@@ -21,11 +23,21 @@ const Topbar=()=> {
                  </IconeDiv>
                </TopLeft>
                  <TopCenter>
-                     
-                         <LiDiv>HOME</LiDiv>
-                       <LiDiv>ABOUT</LiDiv>
-                       <LiDiv>CONTACT</LiDiv>
-                       <LiDiv>LOGOUT</LiDiv>
+                    
+                       <LiDiv>
+                             <NavigationLink to="/" >Home</NavigationLink>
+                       </LiDiv>
+                       <LiDiv>
+                           <NavigationLink to="/About">ABOUT</NavigationLink>
+                       </LiDiv>
+                       <LiDiv>
+                          <NavigationLink to="/Contact"> CONTACT</NavigationLink>
+                        </LiDiv>
+                       <LiDiv>
+                           <NavigationLink to="/Logout">LOGOUT</NavigationLink>
+                        </LiDiv>
+
+                        
 
                  <TopRight>
 
@@ -100,6 +112,34 @@ margin: 10px;
 
 `
 
+
+const NavigationLink = styled(NavLink)`
+  position: relative;
+  text-decoration: none;
+  padding: 0 16px;
+  &.active {
+    color: ${COLORS.secondary};
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    background-color: currentColor;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    width: 50%;
+    margin: auto;
+    height: 3px;
+    transform: scaleX(0);
+    transform-origin: center center;
+    border-radius: 2px;
+  }
+  &.active:after {
+    /* transition: transform 250ms, opacity 150ms; */
+    transform: scaleX(1);
+    opacity: 1;
+  }
+`;
 
 
 
