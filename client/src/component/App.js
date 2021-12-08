@@ -5,6 +5,7 @@ import "./GlobalStyles"
 import RandomMeal from "./RandomMeal"
 import Topbar from "./Topbar";
 import Home from '../pages/Home';
+import Login from '../pages/Login';
 
 function App() {
   return (
@@ -12,9 +13,9 @@ function App() {
     <div >
 
       <Topbar/>
-      <Home/>
+      <Login/>
 
-      <RandomMeal/>
+      {/* <RandomMeal/> */}
       
     
     </div>

@@ -3,11 +3,11 @@ import Header from '../component/Header'
 import styled from 'styled-components';
 
 
-function Home() {
+const Home=()=> {
     return (
         <div>
             <Header/>
-            Home Page
+            
             
         </div>
     )
