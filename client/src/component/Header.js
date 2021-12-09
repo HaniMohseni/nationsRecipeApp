@@ -12,7 +12,7 @@ const Header=()=> {
             <IDiv>
                  <i class="fas fa-utensils"></i>
              </IDiv>
-            <SpanDiv> Nations Resipe</SpanDiv>
+            <SpanDiv> Nations Recipe</SpanDiv>
                    
             </HeaderTitle>
 

@@ -9,7 +9,7 @@ const Login=()=> {
         <Logindiv>
 
             <Loginform>
-
+{/* <img src={LoginBackground}/> */}
                 <LoginSpan>Login</LoginSpan>
 
                 <Loginlabel>Email</Loginlabel>
@@ -34,17 +34,24 @@ display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
-background: linear-gradient(
-    rgba(255, 255, 255, 0.5)
-    rgba(255, 255, 255, 0.5)
-),
-url("LoginBackground");
-background-size:cover;
+/* background: url(${LoginBackground}),
+linear-gradient(to bottom,
+    rgba(255,255,255, 0.1),
+    rgba(255,255,255, 0.1),
+); */
+
+background-image: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,.8) 100%), url(${LoginBackground});
+
+
+
+
+background-size: cover;
 
 `
 
 const LoginSpan=styled.span`
 font-size: 50px;
+color: white;
 
 `
 
@@ -57,6 +64,7 @@ flex-direction: column;
 
 const Loginlabel = styled.label`
 margin: 10px 0;
+color: white;
 
 `
 const Logininput= styled.input`

@@ -1,28 +1,38 @@
 import React from 'react'
+import { useState } from 'react'
 import styled, { StyledComponent } from 'styled-components'
 
 import LoginBackground from "../assets/LoginBackground.jpg"
 
 
 const Register=()=> {
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const registerUser=(e)=>{
+        e.preventDefault();
+    }
+    
+
     return (
         <Registerdiv>
 
-            <Registerform>
+            <Registerform action="" onSubmit={e=>registerUser(e)}>
 
                 <RegisterSpan>Register</RegisterSpan>
 
                 <Registerlabel>Username</Registerlabel>
-                <Registerinput type="text" placeholder="Enter your username ..."/>
+                <Registerinput type="text" placeholder="Enter your username ..." value={email} onChange={e=> setEmail(e.target.value)}  />
 
                 <Registerlabel>Email</Registerlabel>
-                <Registerinput type="text" placeholder="Enter your email ..."/>
+                <Registerinput type="text" placeholder="Enter your email ..." value={password} onChange={e=> setPassword(e.target.value)} />
 
 
                 <Registerlabel>Password</Registerlabel>
                 <Registerinput type="password" placeholder="Enter your passwoed ..."/>
 
-                <RegisterButton>Register</RegisterButton>
+                <RegisterButton type="submit">Register</RegisterButton>
 
              </Registerform>
 
@@ -38,18 +48,14 @@ display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
-background: linear-gradient(
-    rgba(255, 255, 255, 0.5)
-    rgba(255, 255, 255, 0.5)
-),
-url("LoginBackground");
-background-size:cover;
+background-image: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,.8) 100%), url(${LoginBackground});
+
 
 `
 
 const RegisterSpan=styled.span`
 font-size: 50px;
-
+color: white;
 `
 
 const Registerform=styled.form`
@@ -61,6 +67,7 @@ flex-direction: column;
 
 const Registerlabel = styled.label`
 margin: 10px 0;
+color: white;
 
 `
 const Registerinput= styled.input`
