@@ -24,6 +24,7 @@ const Register=()=> {
 
                 <Registerlabel>Username</Registerlabel>
                 <Registerinput type="text" placeholder="Enter your username ..." value={email} onChange={e=> setEmail(e.target.value)}  />
+                {/* <Textlabel>You can Use letters, numbers and periods</Textlabel> */}
 
                 <Registerlabel>Email</Registerlabel>
                 <Registerinput type="text" placeholder="Enter your email ..." value={password} onChange={e=> setPassword(e.target.value)} />
@@ -31,6 +32,7 @@ const Register=()=> {
 
                 <Registerlabel>Password</Registerlabel>
                 <Registerinput type="password" placeholder="Enter your passwoed ..."/>
+                <Textlabel>Use 8 or more characters with a mix of letters, numbers and symbols</Textlabel>
 
                 <RegisterButton type="submit">Register</RegisterButton>
 
@@ -70,6 +72,15 @@ margin: 10px 0;
 color: white;
 
 `
+
+const  Textlabel = styled.label`
+margin: 10px 0;
+color: white;
+font-size:12px;
+font-weight:50;
+`
+
+
 const Registerinput= styled.input`
 padding:10px;
 background-color: white;

@@ -1,13 +1,18 @@
 import React from 'react'
-import CategorySearch from '../component/CategorySearch'
+import Meal from '../component/Meal'
+import "../component/searchStyles.css"
+import LoginBackground from "../assets/LoginBackground.jpg"
+import styled from 'styled-components'
+
 
 const Search=()=> {
     return (
-        <div>
-            <h2>Search by Category</h2>
-            <CategorySearch/>
-        </div>
+        <>
+          <Meal/>
+        </>
     )
 }
+
+
 
 export default Search

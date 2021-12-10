@@ -36,7 +36,7 @@ const Topbar=()=> {
                        </LiDiv>
 
                        <LiDiv>
-                           <NavigationLink to="/FeaturedMeal">FEATURE MEAL</NavigationLink>
+                           <NavigationLink to="/FeaturedMeal">FEATURED MEAL</NavigationLink>
                        </LiDiv>
 
                        <LiDiv>
@@ -56,13 +56,13 @@ const Topbar=()=> {
 
                      <NavigationList>
 
-                        <LiDiv>
-                          <NavigationLink to="/Register"> REGISTER</NavigationLink>
-                        </LiDiv>
+                        <LeftLiDiv>
+                          <NavigationLink to="/Register"> Register</NavigationLink>
+                        </LeftLiDiv>
 
-                        <LiDiv>
-                           <NavigationLink to="/Logout">LOGOUT</NavigationLink>
-                        </LiDiv>
+                        <LeftLiDiv>
+                           <NavigationLink to="/Logout">Login</NavigationLink>
+                        </LeftLiDiv>
 
                      </NavigationList>
                       
@@ -132,6 +132,15 @@ font-weight: 300;
 cursor: pointer;
 
 `
+const LeftLiDiv = styled.li`
+  list-style-type: none;
+margin-right:1px;
+font-size:15px;
+font-weight: 300;
+cursor: pointer;
+
+`
+
 
 const IconeDiv= styled.div`
 font-size: 20px;
