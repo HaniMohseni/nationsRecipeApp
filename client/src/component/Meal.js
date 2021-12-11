@@ -15,8 +15,12 @@ const Meal=()=> {
              .then(data=>{
                  setMeal(data.meals)
              })
+             
         }
     }
+
+   
+
 
     return (
         <div className="main">
