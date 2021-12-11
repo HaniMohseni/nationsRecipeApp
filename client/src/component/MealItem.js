@@ -7,11 +7,11 @@ const MealItem=()=> {
      <>
            <div className="card">
                <img src="https://www.themealdb.com/images/media/meals/mlchx21564916997.jpg"/>
-               <div classname="info">
+               <div className="info">
                    <h2>Pancake</h2>
                    <p>American Food</p>
                  </div>
-               <div classname="recipe">
+               <div className="recipe">
                      <p>Preheat the oven to 180°C/350°F/Gas Mark 4.
                       Grease and line the base of an 8 in round spring form cake tin with baking parchment Break the chocolate into a heatproof bowl and place over a saucepan of gently simmering water and stir until it melts. </p>
                 

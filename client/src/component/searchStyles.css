@@ -7,6 +7,7 @@
 
 
 
+
 .heading h1{
     color:#444;
     font-size: 48px;
@@ -18,13 +19,14 @@
 
     
 }
-.i{
-    font-size: 48px;
-}
 
 .searchBox{
     text-align: center;
     margin: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
   }
 
   .search-bar{
@@ -42,6 +44,7 @@
       width: 80%;
       margin:0 auto;
       display: flex;
+      flex-direction: column;
       justify-content: space-around;
       flex-wrap: wrap;
   }
@@ -63,7 +66,7 @@
 }
 
 .card .info{
-    color:white;
+    color:#444;
     text-align: center;
 }
 
@@ -88,7 +91,7 @@
     left:0;
     height:0 ;
     width:100%;
-    background: linear-gradient(to left, rgba(204,255,51,0.5),rgba(204,255,51,0.5));
+    background: linear-gradient(to left, rgba(204,255,51,0.7),rgba(204,255,51,0.9));
     transition: 0.2s all;;
 
 }
@@ -127,8 +130,9 @@
     height: 100px;
     border-radius: 50%;
     display: block;
-    margin-left: auto;
+    margin-right: auto;
     margin-top: auto;
+    align-items: center;
 }
 
 .recipe p{
@@ -136,7 +140,7 @@
    
 }
 .recipe a{
-    display: block;
+  display: block;
     text-align: center;
 }
 
