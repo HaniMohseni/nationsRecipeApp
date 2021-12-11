@@ -18,7 +18,6 @@ export default createGlobalStyle`
 
 body{
 
-    background-color: #b97ed6;
     color: var(--black-color);
     font-family: 'poppins', sans-serif;
 }

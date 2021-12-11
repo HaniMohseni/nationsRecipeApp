@@ -9,6 +9,8 @@ import Login from '../pages/Login';
 import Register from '../pages/Register';
 import Search from '../pages/Search';
 import FeaturedMeal from '../pages/FeaturedMeal';
+import GlobalStyles from './GlobalStyles';
+
 
 function App() {
   const user = true;

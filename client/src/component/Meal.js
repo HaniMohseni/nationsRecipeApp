@@ -10,10 +10,11 @@ const Meal=()=> {
     
     const searchMeal=(evt)=>{
         if(evt.key=="Enter"){
-            fetch(`www.themealdb.com/api/json/v1/1/search.php?s=${search}`)
+            fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`)
              .then(res=>res.json())
              .then(data=>{
-                 setMeal(data.meals)
+                //console.log(data.meals) 
+                setMeal(data.meals)
              })
              
         }
