@@ -2,7 +2,7 @@
 const path = require('path');
 const express = require('express');
 
-const {addUser} = require("./handlers")
+const {addUser, addRecipeToFavorite} = require("./handlers")
 
 
 const PORT = 8000;
@@ -14,6 +14,8 @@ express()
  // ============Routs for Endpoints============//
 
  .post("/api/new-user", addUser)
+ .post("/api/favorite", addRecipeToFavorite)
+
 
 
   .listen(PORT, function() {

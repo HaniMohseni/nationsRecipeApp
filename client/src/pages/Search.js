@@ -3,16 +3,15 @@ import Meal from '../component/Meal'
 import AreaMeal from '../component/AreaMeal'
 import IngreMeal from '../component/IngreMeal'
 import "../component/searchStyles.css"
-import searchback from "../assets/searchback.jpg"
 import styled from 'styled-components'
 import { useState } from 'react'
 
 
 const Search=()=> {
 
-  const [displayA, setDisplayA] = useState(true);
-  const [displayB, setDisplayB] = useState(true);
-  const [displayC, setDisplayC] = useState(true);
+  const [displayA, setDisplayA] = useState(false);
+  const [displayB, setDisplayB] = useState(false);
+  const [displayC, setDisplayC] = useState(false);
 
   const showA = () => {
     setDisplayA(true);
@@ -31,7 +30,7 @@ const Search=()=> {
   };
 
   return (
-    <searchDiv>
+    <div>
         <>
          <div className="heading">
                  <h1>Search Your Food Recipe</h1>
@@ -62,13 +61,13 @@ const Search=()=> {
       {/* to have conditional rendering, based on selected radio button,
        I will render different search component(Search based on name or search based on Area) */}
 
-    
+      {/* {answer1 ? <div><Meal/></div> : (answer2 ? <div><AreaMeal/></div> : <div><IngreMeal/></div>)} */}
           {displayA && <div><Meal/></div>}
           {displayB && <div><AreaMeal/></div>}
           {displayC && <div><IngreMeal/></div>}
           
       </>
-    </searchDiv>
+    </div>
       
 
       
@@ -80,10 +79,7 @@ const SearchContain = styled.div`
 display: flex;
 align-items:center;`
 
-const searchDiv=styled.div`
-background-image: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,.8) 100%), url(${searchback});
 
-`
 
 
 export default Search

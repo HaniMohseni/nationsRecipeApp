@@ -5,21 +5,42 @@ import { useHistory } from "react-router-dom";
 import LoginBackground from "../assets/LoginBackground.jpg"
 
 
+
 const Register=()=> {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const[username,setUsername]=useState('');
+    const [Cpassword, setCPassword] = useState('');
 
     const registerUser=(e)=>{
         e.preventDefault();
+        fetch("/api/new-user", {
+            method: "POST",
+            body: JSON.stringify({
+                email: email,
+                plain_password: password
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            //console.log(data);
+           // if(data.status === 200){
+                //localStorage.setItem('data', JSON.stringify(data.data));
+                //history.push('/confirmed')
+            //}        
+        })
+        .catch(err => {
+            console.log("we have a problem " + err.message)});
+
     }
-    
 
     return (
         <Registerdiv>
 
-            <Registerform action="" onSubmit={e=>registerUser(e)}>
+            <Registerform onSubmit={(e) =>{registerUser(e)}}>
 
                 <RegisterSpan>Register</RegisterSpan>
 
@@ -34,7 +55,7 @@ const Register=()=> {
                 <Textlabel>Use 8 or more characters with a mix of letters, numbers and symbols</Textlabel>
 
                 <Registerlabel>Confirm Password</Registerlabel>
-                <Registerinput type="password" placeholder="Confirm the Passwoed ..."value={password} onChange={e=> setPassword(e.target.value)} />
+                <Registerinput type="password" placeholder="Confirm the Passwoed ..."value={password} onChange={e=> setCPassword(e.target.value)} />
                 
 
                 <RegisterButton type="submit">Register</RegisterButton>

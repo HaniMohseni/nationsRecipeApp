@@ -1,4 +1,7 @@
 "use strict";
+const bcrypt = require("bcrypt");
+// generate salt to hash password
+const salt = bcrypt.genSalt(10);
 
 const {MongoClient} = require("mongodb");
 require ("dotenv").config({path:"./.env"});
@@ -19,41 +22,93 @@ const { v4: uuidv4 } = require("uuid");
 
 //adding a new user
 
-const addUser = async (req, res) => {
-  const { email, password } = req.body;
-  let _id = uuidv4();
-
- const query = { email, password }; 
- 
-
- const newRec = {
-    _id,
-    email: email,
-    password: password,
-    
+  const addUser = async (req, res) => {
+    const { email, plain_password} = req.body;
+    let _id = uuidv4();
+  
+   const query = {email}; 
+   
+  
+   const newRec = {
+      user_id: _id,
+      email: email,
+      hashed_password: bcrypt.hash(plain_password, salt)
+    };
+  console.log(newRec)
+    try {
+      const client = new MongoClient(MONGO_URI, options);
+      await client.connect();
+      const db = client.db("nationsRcipe");
+      const registration = await db.collection("users").findOne(query);
+      
+      if (registration) {
+        //if the user already exist
+        return res.status(400).json({status: 400, msg: "This user already exists. Enter a new email address."});
+      } else {
+          const result = await db.collection("users").insertOne(newRec);
+          
+        res.status(200).json({ status: 200, msg: "Successfully Registered!", data: newRec });
+        client.close();
+      }
+    } catch (err) {
+        res.status(400).json({status: 400, message: err});
+    }
   };
+  
+  
 
+
+//==========================================================//
+
+//add a recipe in favorite to user data
+const addRecipeToFavorite = async (req, res) => {
+  const client = new MongoClient(MONGO_URI, options);
+  const { userId, food } = req.body;
   try {
-    const client = new MongoClient(MONGO_URI, options);
     await client.connect();
     const db = client.db("nationsRcipe");
-    const emeil = await db.collection("users").findOne(query);
-    
-    if (email) {
-      //if the email already exist
-      return res.status(400).json({status: 400, msg: "This email is already registered"});
-    } else {
-        const result = await db.collection("users").insertOne(newRec);
+
+    //update user doc
+    //this food  already exists in user.favorite arr
+  
+    const { value } = await db.collection("users").findOneAndUpdate(
+      { _id: userId, "favorite._id": food._id },
      
-      res.status(200).json({ status: 200, msg: "Registration successful!", data: newRec });
-      client.close();
+    );
+
+    if (value) {
+      res.status(200).json({
+        status: 200,
+        data: { ...req.body },
+        message: "Recipe added to user favorite",
+      });
+    } else {
+      //this item doesn't exist in user.favorite arr yet
+      //push the food 
+      const { value } = await db
+        .collection("users")
+        .findOneAndUpdate(
+          { _id: userId },
+          { $push: { favorite: { ...food} } }
+        );
+
+      value
+        ? res.status(200).json({
+            status: 200,
+            data: { ...req.body },
+            message: "Recipe added to user favorite",
+          })
+        : res.status(404).json({ status: 500, data: "Server Error" });
     }
   } catch (err) {
-      res.status(400).json({status: 400, message: err});
+    console.log(err.stack);
+  } finally {
+    await client.close();
   }
 };
 
+//=================================================//
 
 module.exports = {
-  addUser
+  addUser, addRecipeToFavorite
 };

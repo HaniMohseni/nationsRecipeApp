@@ -9,6 +9,7 @@
     padding: 0;
     box-sizing: border-box;
     
+    
 }
 
 
@@ -41,19 +42,31 @@
     font-size: 18px;
     font-weight: 200;
     letter-spacing: 1px;
-    padding-top: 1rem;
+    padding-top: 0.2rem;
     text-align: center;
-    align-items: center;
+    align-items: left;
+  }
+
+  .RadioUl{
+    color:#444;
+    font-size: 16px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    padding-top: 0 rem;
+    text-align: center;
+    align-items: left;
+
   }
 
  
 .searchBox{
     text-align: center;
-    margin: 3rem;
+    margin: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 20px;
+
   }
 
   .search-bar{
@@ -63,7 +76,8 @@
       outline: none;
       border-radius: 20px;
       padding: 0.3rem 1rem;
-      background: rgb(247, 247, 216);
+      background: rgb(8, 8, 8);
+      color:white;
 
   }
 
