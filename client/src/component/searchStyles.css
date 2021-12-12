@@ -21,10 +21,32 @@
     padding-top: 2rem;
     text-align: center;
     text-shadow:3px 6px rgba(50,50,70,0.3)
-
     
 }
 
+.heading h4{
+    color:#444;
+    font-size: 26px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    padding-top: 1rem;
+    text-align: center;
+    align-items: center;
+
+        
+       
+}
+.radioDiv{
+    color:#444;
+    font-size: 18px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding-top: 1rem;
+    text-align: center;
+    align-items: center;
+  }
+
+ 
 .searchBox{
     text-align: center;
     margin: 3rem;

@@ -31,7 +31,7 @@ const Meal=()=> {
 
              <div className="searchBox"> 
                   <i class="fas fa-search"></i>
-                  <input type="search" className="search-bar" placeholder="Enter your food name" onChange={(e)=>setSearch(e.target.value)} value={search} onKeyPress={searchMeal}></input>
+                  <input type="search" className="search-bar" placeholder="Enter Your Food Name" onChange={(e)=>setSearch(e.target.value)} value={search} onKeyPress={searchMeal}></input>
                   
              </div>
 
