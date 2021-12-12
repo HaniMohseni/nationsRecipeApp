@@ -25,9 +25,7 @@ const Topbar=()=> {
                  </IconeDiv>
                </TopLeft>
 
-
-
-                 <TopCenter> 
+               <TopCenter> 
 
                  <NavigationList>
                     
@@ -40,11 +38,11 @@ const Topbar=()=> {
                        </LiDiv>
 
                        <LiDiv>
-                           <NavigationLink to="/Search">SEARCH </NavigationLink>
+                           <NavigationLink to="/Search">SEARCH</NavigationLink>
                        </LiDiv>
 
                        <LiDiv>
-                           <NavigationLink to="/Contact"> CONTACT</NavigationLink>
+                           <NavigationLink to="/Contact">CONTACT</NavigationLink>
                       </LiDiv>
 
                  </NavigationList>

@@ -2,15 +2,15 @@ import React from 'react'
 import { useState } from 'react';
 import styled, { StyledComponent } from 'styled-components'
 import {injectGlobal} from  'styled-components';
-import MealItem from './MealItem'
+import AreaMealItem from './AreaMealItem'
 
-const Meal=()=> {
+const AreaMeal=()=> {
     const[search,setSearch]=useState("");
     const[Mymeal,setMeal]=useState();
     
     const searchMeal=(evt)=>{
         if(evt.key=="Enter"){
-            fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`)
+            fetch(`www.themealdb.com/api/json/v1/1/filter.php?a=${search}`)
              .then(res=>res.json())
              .then(data=>{
                 //console.log(data.meals) 
@@ -26,12 +26,13 @@ const Meal=()=> {
     return (
         <div className="main">
              <div className="heading">
-              
+                       
+                 
              </div>
 
              <div className="searchBox"> 
                   <i class="fas fa-search"></i>
-                  <input type="search" className="search-bar" placeholder="Enter your food name" onChange={(e)=>setSearch(e.target.value)} value={search} onKeyPress={searchMeal}></input>
+                  <input type="search" className="search-bar" placeholder="Enter your food area" onChange={(e)=>setSearch(e.target.value)} value={search} onKeyPress={searchMeal}></input>
                   
              </div>
 
@@ -40,7 +41,7 @@ const Meal=()=> {
                  {
                      (Mymeal==null)? <p>Not Found</p> : Mymeal.map((res)=>{
                          return(
-                            <MealItem data={res}/>
+                            <AreaMealItem data={res}/>
                          )
                      })
                      
@@ -57,4 +58,4 @@ const Meal=()=> {
 
 
 
-export default Meal
+export default AreaMeal
