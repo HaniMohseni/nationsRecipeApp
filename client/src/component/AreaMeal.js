@@ -10,7 +10,7 @@ const AreaMeal=()=> {
     
     const searchMeal=(evt)=>{
         if(evt.key=="Enter"){
-            fetch(`www.themealdb.com/api/json/v1/1/filter.php?a=${search}`)
+            fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${search}`)
              .then(res=>res.json())
              .then(data=>{
                 //console.log(data.meals) 
@@ -32,7 +32,7 @@ const AreaMeal=()=> {
 
              <div className="searchBox"> 
                   <i class="fas fa-search"></i>
-                  <input type="search" className="search-bar" placeholder="Enter your food area" onChange={(e)=>setSearch(e.target.value)} value={search} onKeyPress={searchMeal}></input>
+                  <input type="search" className="search-bar" placeholder="Enter Your Food Area" onChange={(e)=>setSearch(e.target.value)} value={search} onKeyPress={searchMeal}></input>
                   
              </div>
 

@@ -17,7 +17,8 @@ const AreaMealItem=(getMeal)=> {
                 
                    <h2>Recipe</h2>
                    <img src={getMeal.data.strMealThumb}/>
-                   <a href={getMeal.data.strSource}>Watch video</a>
+                   <p>To see the recipe, please search the name of the food</p>
+                   
                </div>
             
          </div>

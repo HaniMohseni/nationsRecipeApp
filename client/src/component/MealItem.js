@@ -13,9 +13,10 @@ const MealItem=(getMeal)=> {
                    <p>{getMeal.data.strArea}food</p>
                  </div>
                <div className="recipe">
+               <h2>Recipe</h2>
                      <p>{getMeal.data.strInstructions}</p>
                 
-                   <h2>Recipe</h2>
+                   
                    <img src={getMeal.data.strMealThumb}/>
                    <a href={getMeal.data.strSource}>Watch video</a>
                </div>
@@ -25,8 +26,5 @@ const MealItem=(getMeal)=> {
         
     )
 }
-
-
-
 
 export default MealItem

@@ -25,9 +25,7 @@ function App() {
             <Route  path="/Logout" element={<Login />}/>
             <Route  path="/Search" element={<Search />}/>
             <Route  path="/FeaturedMeal" element={<FeaturedMeal />}/>
-            
-
-                     
+                      
              {/* {user ? <Home/> : <Register/>} */}
       </Routes>
            
