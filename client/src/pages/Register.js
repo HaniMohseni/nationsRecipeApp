@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import styled, { StyledComponent } from 'styled-components'
-
+import { useHistory } from "react-router-dom";
 import LoginBackground from "../assets/LoginBackground.jpg"
 
 
@@ -9,6 +9,7 @@ const Register=()=> {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const[username,setUsername]=useState('');
 
     const registerUser=(e)=>{
         e.preventDefault();
@@ -22,17 +23,19 @@ const Register=()=> {
 
                 <RegisterSpan>Register</RegisterSpan>
 
-                <Registerlabel>Username</Registerlabel>
-                <Registerinput type="text" placeholder="Enter your username ..." value={email} onChange={e=> setEmail(e.target.value)}  />
-                {/* <Textlabel>You can Use letters, numbers and periods</Textlabel> */}
+                
 
                 <Registerlabel>Email</Registerlabel>
-                <Registerinput type="text" placeholder="Enter your email ..." value={password} onChange={e=> setPassword(e.target.value)} />
+                <Registerinput type="text" placeholder="Enter Your Email ..." value={email} onChange={e=> setEmail(e.target.value)}  />
 
 
                 <Registerlabel>Password</Registerlabel>
-                <Registerinput type="password" placeholder="Enter your passwoed ..."/>
+                <Registerinput type="password" placeholder="Choose a Passwoed ..."value={password} onChange={e=> setPassword(e.target.value)} />
                 <Textlabel>Use 8 or more characters with a mix of letters, numbers and symbols</Textlabel>
+
+                <Registerlabel>Confirm Password</Registerlabel>
+                <Registerinput type="password" placeholder="Confirm the Passwoed ..."value={password} onChange={e=> setPassword(e.target.value)} />
+                
 
                 <RegisterButton type="submit">Register</RegisterButton>
 

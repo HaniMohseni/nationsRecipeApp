@@ -14,6 +14,9 @@ function Modal({showModal,setShowModal, strInstructions,strMealThumb}) {
 
 const RecipeDiv=styled.div`
 background-color:black;
+justify-content: center;
+height:100%
+width:100%
 text-align: justify;
 `
 

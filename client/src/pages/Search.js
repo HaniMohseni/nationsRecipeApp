@@ -26,11 +26,11 @@ const Search=()=> {
         <ul className="RadioUl">
           <li>
         <input type="radio" value={true} name="option" onClick={toggleAnswer} />
-        <span>Search Based on Name</span>
+        <span>Based on Name</span>
         </li>
         <li>
-        <input type="radio" value={false} name="option" onClick={toggleAnswer} /> 
-        <span>Search Based on Area</span>
+        <input  type="radio" value={false} name="option" checked="checked" onClick={toggleAnswer} /> 
+        <span>Based on Area</span>
         </li>
         </ul>
       </div>

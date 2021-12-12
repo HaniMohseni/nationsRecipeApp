@@ -120,6 +120,7 @@
     width:100%;
     background: linear-gradient(to left, rgba(204,255,51,0.7),rgba(204,255,51,0.9));
     transition: 0.2s all;;
+    
 
 }
 
@@ -130,6 +131,7 @@
 
 .card:hover{
     background: linear-gradient(to left, rgba(204,255,51,0.5),rgba(204,255,51,0.5));
+    height: 100%;
      
 }
 
