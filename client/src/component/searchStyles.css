@@ -55,6 +55,7 @@
     padding-top: 0 rem;
     text-align: center;
     align-items: left;
+    
 
   }
 
@@ -67,6 +68,7 @@
     justify-content: center;
     margin-right: 20px;
 
+
   }
 
   .search-bar{
@@ -78,6 +80,7 @@
       padding: 0.3rem 1rem;
       background: rgb(8, 8, 8);
       color:white;
+    
 
   }
 

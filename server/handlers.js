@@ -30,11 +30,11 @@ const { v4: uuidv4 } = require("uuid");
    
   
    const newRec = {
-      user_id: _id,
+      _id,
       email: email,
-      hashed_password: bcrypt.hash(plain_password, salt)
+      hashed_password: bcrypt.hash(plain_password, parseInt(salt))
     };
-  console.log(newRec)
+  
     try {
       const client = new MongoClient(MONGO_URI, options);
       await client.connect();
@@ -56,6 +56,44 @@ const { v4: uuidv4 } = require("uuid");
   };
   
   
+
+  //====================================================//
+  //signin endpoin
+
+  const signin = async (req, res) => {
+    const { email, plain_password} = req.body;
+    const query = {email}; 
+   
+  
+//      hashed_password: bcrypt.hash(plain_password, parseInt(salt))
+//const match = await bcrypt.compare(password, user.passwordHash);
+
+  
+    try {
+      const client = new MongoClient(MONGO_URI, options);
+      await client.connect();
+      const db = client.db("nationsRcipe");
+      const user_found = await db.collection("users").findOne(query);
+      console.log(user_found)
+      if (!user_found) {
+        //if the user already exist
+        return res.status(400).json({status: 400, msg: "This user not found. Enter a valid email address."})
+      } 
+      const match = await bcrypt.compare(``+plain_password, user_found.hashed_password)
+      
+      if(!match) {
+        return res.status(401).json({status: 400, msg: "The Password is not correct. Enter a valid password."});
+      }   
+      
+      res.status(200).json({ status: 200, msg: "Successfully Registered!", data: '' });
+      client.close();
+      
+    } catch (err) {
+        res.status(400).json({status: 400, message: err});
+    }
+
+  }
+
 
 
 //==========================================================//
@@ -110,5 +148,5 @@ const addRecipeToFavorite = async (req, res) => {
 //=================================================//
 
 module.exports = {
-  addUser, addRecipeToFavorite
+  addUser, addRecipeToFavorite, signin
 };

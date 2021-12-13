@@ -1,13 +1,15 @@
 import React from 'react'
 import { useState } from 'react'
 import styled, { StyledComponent } from 'styled-components'
-import { useHistory } from "react-router-dom";
 import LoginBackground from "../assets/LoginBackground.jpg"
+// in 'react-router' ver.6 instead of useHystory
+import { useNavigate } from 'react-router'
 
 
 
 const Register=()=> {
 
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [Cpassword, setCPassword] = useState('');
@@ -26,17 +28,23 @@ const Register=()=> {
         })
         .then((res) => res.json())
         .then((data) => {
-            //console.log(data);
-           // if(data.status === 200){
-                //localStorage.setItem('data', JSON.stringify(data.data));
-                //history.push('/confirmed')
-            //}        
+            if(data.status === 400){
+                alert(data.msg)
+                
+            }
+            if(data.status === 200){
+                alert(data.msg)
+                localStorage.setItem('Current_User', email)
+                navigate('/Login');
+
+            } 
         })
         .catch(err => {
             console.log("we have a problem " + err.message)});
 
     }
 
+ 
     return (
         <Registerdiv>
 
@@ -47,15 +55,15 @@ const Register=()=> {
                 
 
                 <Registerlabel>Email</Registerlabel>
-                <Registerinput type="text" placeholder="Enter Your Email ..." value={email} onChange={e=> setEmail(e.target.value)}  />
+                <Registerinput type="text" name= "email" placeholder="Enter Your Email ..." value={email} onChange={e=> setEmail(e.target.value)}  />
 
 
                 <Registerlabel>Password</Registerlabel>
-                <Registerinput type="password" placeholder="Choose a Passwoed ..."value={password} onChange={e=> setPassword(e.target.value)} />
+                <Registerinput type="password" name="passwoed" placeholder="Choose a Passwoed ..."value={password} onChange={e=> setPassword(e.target.value)} />
                 <Textlabel>Use 8 or more characters with a mix of letters, numbers and symbols</Textlabel>
 
                 <Registerlabel>Confirm Password</Registerlabel>
-                <Registerinput type="password" placeholder="Confirm the Passwoed ..."value={password} onChange={e=> setCPassword(e.target.value)} />
+                <Registerinput type="password" name="confirmPassword" placeholder="Confirm the Passwoed ..."value={password} onChange={e=> setCPassword(e.target.value)} />
                 
 
                 <RegisterButton type="submit">Register</RegisterButton>

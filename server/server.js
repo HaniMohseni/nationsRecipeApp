@@ -2,7 +2,7 @@
 const path = require('path');
 const express = require('express');
 
-const {addUser, addRecipeToFavorite} = require("./handlers")
+const {addUser, addRecipeToFavorite, signin} = require("./handlers")
 
 
 const PORT = 8000;
@@ -15,6 +15,8 @@ express()
 
  .post("/api/new-user", addUser)
  .post("/api/favorite", addRecipeToFavorite)
+ .post("/api/sign-in", signin)
+
 
 
 
