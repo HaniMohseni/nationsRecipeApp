@@ -3,7 +3,6 @@ import styled, { StyledComponent } from 'styled-components'
 import { useState } from 'react'
 // in 'react-router' ver.6 instead of useHystory
 import { useNavigate } from 'react-router'
-
 import LoginBackground from "../assets/LoginBackground.jpg"
 
 
@@ -41,14 +40,11 @@ const Login=()=> {
     }
 
 
-
-
-
     return (
         <Logindiv>
 
             <Loginform onSubmit={(e) =>{signing_in(e)}}>
-{/* <img src={LoginBackground}/> */}
+                {/* <img src={LoginBackground}/> */}
                 <LoginSpan>Login</LoginSpan>
 
                 <Loginlabel>Email</Loginlabel>

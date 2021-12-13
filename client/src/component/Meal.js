@@ -6,7 +6,7 @@ import MealItem from './MealItem'
 
 const Meal=()=> {
     const[search,setSearch]=useState("");
-    const[Mymeal,setMeal]=useState();
+    const[Mymeal,setMeal]=useState([]);
     
     const searchMeal=(evt)=>{
         if(evt.key=="Enter"){
@@ -20,7 +20,7 @@ const Meal=()=> {
         }
     }
 
-   
+   console.log(Mymeal);
 
 
     return (

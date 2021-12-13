@@ -59,11 +59,11 @@ const Register=()=> {
 
 
                 <Registerlabel>Password</Registerlabel>
-                <Registerinput type="password" name="passwoed" placeholder="Choose a Passwoed ..."value={password} onChange={e=> setPassword(e.target.value)} />
+                <Registerinput type="password" name="passwoed" placeholder="Choose a Passwoed ..." onChange={e=> setPassword(e.target.value)} />
                 <Textlabel>Use 8 or more characters with a mix of letters, numbers and symbols</Textlabel>
 
                 <Registerlabel>Confirm Password</Registerlabel>
-                <Registerinput type="password" name="confirmPassword" placeholder="Confirm the Passwoed ..."value={password} onChange={e=> setCPassword(e.target.value)} />
+                <Registerinput type="password" name="confirmPassword" placeholder="Confirm the Passwoed ..." onChange={e=> setCPassword(e.target.value)} />
                 
 
                 <RegisterButton type="submit">Register</RegisterButton>

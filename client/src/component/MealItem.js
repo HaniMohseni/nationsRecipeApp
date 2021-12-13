@@ -5,7 +5,7 @@ import styled, { StyledComponent } from 'styled-components'
 const MealItem=(getMeal)=> {
     //console.log(getMeal.data)
     return (
-     <>
+     
            <div className="card">
                <img src={getMeal.data.strMealThumb}/>
                <div className="info">
@@ -22,7 +22,7 @@ const MealItem=(getMeal)=> {
                </div>
             
          </div>
-     </>
+     
         
     )
 }

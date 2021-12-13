@@ -1,7 +1,7 @@
 "use strict";
 const bcrypt = require("bcrypt");
 // generate salt to hash password
-const salt = bcrypt.genSalt(10);
+
 
 const {MongoClient} = require("mongodb");
 require ("dotenv").config({path:"./.env"});
@@ -27,12 +27,13 @@ const { v4: uuidv4 } = require("uuid");
     let _id = uuidv4();
   
    const query = {email}; 
-   
+   const salt = await bcrypt.genSalt(10);
+   const hashed_password= await bcrypt.hash(plain_password, salt)
   
    const newRec = {
       _id,
       email: email,
-      hashed_password: bcrypt.hash(plain_password, parseInt(salt))
+      hashed_password
     };
   
     try {
@@ -65,7 +66,7 @@ const { v4: uuidv4 } = require("uuid");
     const query = {email}; 
    
   
-//      hashed_password: bcrypt.hash(plain_password, parseInt(salt))
+//hashed_password: bcrypt.hash(plain_password, parseInt(salt))
 //const match = await bcrypt.compare(password, user.passwordHash);
 
   
