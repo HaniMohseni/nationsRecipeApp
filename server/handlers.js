@@ -33,6 +33,7 @@ const { v4: uuidv4 } = require("uuid");
    const newRec = {
       _id,
       email: email,
+      favorite_meals:[],
       hashed_password
     };
   
@@ -88,7 +89,7 @@ const { v4: uuidv4 } = require("uuid");
       
       
       
-      res.status(200).json({ status: 200, msg: "Successfully Logged In!", token: email.split('@')[0] });
+      res.status(200).json({ status: 200, msg: "Successfully Logged In!", token: email});
       client.close();
       
     } catch (err) {
@@ -101,55 +102,78 @@ const { v4: uuidv4 } = require("uuid");
 
 //==========================================================//
 
-//add a recipe in favorite to user data
+//adding a food into user's favorite meals
 const addRecipeToFavorite = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
-  const { userId, food } = req.body;
+  const { email, food_id } = req.body;
+   
+  
+  const query = {email}; 
+ 
+
+ 
   try {
+    const client = new MongoClient(MONGO_URI, options);
     await client.connect();
     const db = client.db("nationsRcipe");
-
-    //update user doc
-    //this food  already exists in user.favorite arr
-  
-    const { value } = await db.collection("users").findOneAndUpdate(
-      { _id: userId, "favorite._id": food._id },
-     
-    );
-
-    if (value) {
-      res.status(200).json({
-        status: 200,
-        data: { ...req.body },
-        message: "Recipe added to user favorite",
-      });
+    const user_found = await db.collection("users").findOne(query);
+    
+    if (!user_found) {
+      return res.status(400).json({status: 400, msg: "User not found"});
     } else {
-      //this item doesn't exist in user.favorite arr yet
-      //push the food 
-      const { value } = await db
-        .collection("users")
-        .findOneAndUpdate(
-          { _id: userId },
-          { $push: { favorite: { ...food} } }
-        );
-
-      value
-        ? res.status(200).json({
-            status: 200,
-            data: { ...req.body },
-            message: "Recipe added to user favorite",
-          })
-        : res.status(404).json({ status: 500, data: "Server Error" });
+        await db.collection("users").updateOne(
+          { _id: user_found._id,
+             email: email,
+             hashed_password: user_found.hashed_password,
+             favorite_meals: user_found.favorite_meals.push(food_id)
+        }, 
+        
+      );
+      res.status(200).json({ status: 200, msg: "Successfully Saved!", data: "" });
+      client.close();
     }
   } catch (err) {
-    console.log(err.stack);
-  } finally {
-    await client.close();
+      res.status(400).json({status: 400, message: err});
   }
 };
+
+
+//=============================================//
+//removing a food from user's favorite meals
+
+const deleteRecipe = async (req, res) => {
+  const client = new MongoClient(MONGO_URI, options);
+  const { email, food_id } = req.body;
+  const query = {email}; 
+
+  try {
+    const client = new MongoClient(MONGO_URI, options);
+    await client.connect();
+    const db = client.db("nationsRcipe");
+    const user_found = await db.collection("users").findOne(query);
+    
+    if (!user_found) {
+      return res.status(400).json({status: 400, msg: "User not found"});
+    } else {
+        await db.collection("users").updateOne(
+          { _id: user_found._id,
+             email: email,
+             hashed_password: user_found.hashed_password,
+             favorite_meals: user_found.favorite_meals.filter(item => item!== food_id)
+        }, 
+        
+      );
+      res.status(200).json({ status: 200, msg: "Successfully Saved!", data: "" });
+      client.close();
+    }
+  } catch (err) {
+      res.status(400).json({status: 400, message: err});
+  }
+};
+
 
 //=================================================//
 
 module.exports = {
-  addUser, addRecipeToFavorite, signin
+  addUser, addRecipeToFavorite, signin, deleteRecipe
 };

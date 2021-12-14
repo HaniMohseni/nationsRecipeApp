@@ -3,7 +3,7 @@ import React from 'react'
 const Profile=()=> {
     return (
         <div>
-           Profile of {localStorage.getItem('Token')} 
+           My Favorite Meals 
         </div>
     )
 }

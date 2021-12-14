@@ -61,7 +61,7 @@ const Topbar=()=> {
                      <NavigationList>
 
                         <LeftLiDiv>
-                        {user ? <NavigationLink to="/providerr"> {user}</NavigationLink> : <NavigationLink to="/Register"> Register</NavigationLink>}
+                        {user ? <NavigationLink to="/providerr">{user.split('@')[0]}</NavigationLink> : <NavigationLink to="/Register"> Register</NavigationLink>}
                         </LeftLiDiv>
 
                         <LeftLiDiv>

@@ -31,7 +31,7 @@ const Login=()=> {
             }
             
             if(data.status === 200){
-               localStorage.setItem('Token', data.token) 
+              
                setUser(data.token)
                navigate('/Profile');
 
