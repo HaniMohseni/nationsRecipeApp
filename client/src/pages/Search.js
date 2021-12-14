@@ -41,17 +41,17 @@ const Search=()=> {
       <div className="radioDiv">
         <ul className="RadioUl">
         <li>
-        <input type="radio" value={true} name="option" onClick={showA} />
+        <input type="radio" value={true} name="option" onClick={showA} /><label for="first">{"  "}</label>
         <span>Based on Name</span>
         </li>
 
         <li>
-        <input  type="radio" value={false} name="option"  onClick={showB} /> 
+        <input  type="radio" value={false} name="option"  onClick={showB} /><label for="second">{"  "}</label> 
         <span>Based on Area</span>
         </li>
 
         <li>
-        <input  type="radio" value={false} name="option"  onClick={showC} /> 
+        <input  type="radio" value={false} name="option"  onClick={showC} /> <label for="third">{}</label>
         <span>Based on Ingredient</span>
         </li>
 
@@ -59,9 +59,8 @@ const Search=()=> {
       </div>
 
       {/* to have conditional rendering, based on selected radio button,
-       I will render different search component(Search based on name or search based on Area) */}
+       I will render different search component(Search based on name, Area or ingredient) */}
 
-      {/* {answer1 ? <div><Meal/></div> : (answer2 ? <div><AreaMeal/></div> : <div><IngreMeal/></div>)} */}
           {displayA && <div><Meal/></div>}
           {displayB && <div><AreaMeal/></div>}
           {displayC && <div><IngreMeal/></div>}
@@ -75,9 +74,6 @@ const Search=()=> {
     )
 }
 
-const SearchContain = styled.div`
-display: flex;
-align-items:center;`
 
 
 

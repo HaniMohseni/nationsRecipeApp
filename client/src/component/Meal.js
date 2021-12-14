@@ -20,8 +20,6 @@ const Meal=()=> {
         }
     }
 
-   console.log(Mymeal);
-
 
     return (
         <div className="main">

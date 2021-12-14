@@ -44,7 +44,9 @@
     letter-spacing: 1px;
     padding-top: 0.2rem;
     text-align: center;
-    align-items: left;
+    align-items: center;
+    list-style-type:none;
+
   }
 
   .RadioUl{
@@ -53,10 +55,36 @@
     font-weight: 100;
     letter-spacing: 1px;
     padding-top: 0 rem;
-    text-align: center;
-    align-items: left;
+    text-align: left;
+    /* align-items: left; */
+    display: inline-block;
+    list-style-type:none;
     
+  }
+  label {
+    margin-left: -6px;
+    display: inline-block;
+    padding: 5px 10px;
+    text-align: left;
+        
+  }
 
+  input[type='radio'] {
+    box-sizing: border-box;
+    appearance: none;
+    background: white;
+    outline: 2px solid #333;
+    border: 3px solid white;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    position: relative;
+    top: 3px;
+
+  }
+  
+  input[type='radio']:checked {
+    background: #333;
   }
 
  
@@ -66,7 +94,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 20px;
 
 
   }
@@ -91,6 +118,7 @@
       /* flex-direction: column; */
       justify-content: space-around;
       flex-wrap: wrap;
+      display: flex;
   }
 
   .card{

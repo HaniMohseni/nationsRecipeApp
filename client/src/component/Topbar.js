@@ -34,7 +34,7 @@ const Topbar=()=> {
                        </LiDiv>
 
                        <LiDiv>
-                           <NavigationLink to="/FeaturedMeal">FEATURED MEAL</NavigationLink>
+                           <NavigationLink to="/FeaturedMeal">FEATURED</NavigationLink>
                        </LiDiv>
 
                        <LiDiv>
@@ -43,6 +43,10 @@ const Topbar=()=> {
 
                        <LiDiv>
                            <NavigationLink to="/Contact">CONTACT</NavigationLink>
+                      </LiDiv>
+
+                      <LiDiv>
+                           <NavigationLink to="/Profile">CONTACT</NavigationLink>
                       </LiDiv>
 
                  </NavigationList>

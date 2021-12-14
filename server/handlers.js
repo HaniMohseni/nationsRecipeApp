@@ -86,7 +86,9 @@ const { v4: uuidv4 } = require("uuid");
         return res.status(401).json({status: 400, msg: "The Password is not correct. Enter a valid password."});
       }   
       
-      res.status(200).json({ status: 200, msg: "Successfully Registered!", data: '' });
+      
+      
+      res.status(200).json({ status: 200, msg: "Successfully Logged In!", token: email.split('@')[0] });
       client.close();
       
     } catch (err) {

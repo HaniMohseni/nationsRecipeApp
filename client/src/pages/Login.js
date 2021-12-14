@@ -31,7 +31,9 @@ const Login=()=> {
             }
             
             if(data.status === 200){
-               navigate('/');
+               localStorage.setItem('Token', data.token) 
+               navigate('/Profile');
+
             } 
         })
         .catch(err => {
