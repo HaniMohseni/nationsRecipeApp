@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { UserConstext } from './UserContext';
+import Logout from '../pages/Logout';
 
 const Topbar=()=> {
-    const user = true;
+    const {user, setUser} = useContext(UserConstext);
     return (
         
             <Wrapper>
@@ -45,9 +47,9 @@ const Topbar=()=> {
                            <NavigationLink to="/Contact">CONTACT</NavigationLink>
                       </LiDiv>
 
-                      <LiDiv>
-                           <NavigationLink to="/Profile">CONTACT</NavigationLink>
-                      </LiDiv>
+                  
+
+                     
 
                  </NavigationList>
 
@@ -59,11 +61,11 @@ const Topbar=()=> {
                      <NavigationList>
 
                         <LeftLiDiv>
-                          <NavigationLink to="/Register"> Register</NavigationLink>
+                        {user ? <NavigationLink to="/providerr"> {user}</NavigationLink> : <NavigationLink to="/Register"> Register</NavigationLink>}
                         </LeftLiDiv>
 
                         <LeftLiDiv>
-                           <NavigationLink to="/Login">Login</NavigationLink>
+                        {user ?  <NavigationLink to="/logout">Logout</NavigationLink> :<NavigationLink to="/Login">Login</NavigationLink>}
                         </LeftLiDiv>
 
                      </NavigationList>

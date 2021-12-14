@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import Header from '../component/Header'
 import styled from 'styled-components';
-
+import { UserConstext } from '../component/UserContext';
 
 const Home=()=> {
+    const {user, setUser} = useContext(UserConstext)
     return (
         <div>
             <Header/>

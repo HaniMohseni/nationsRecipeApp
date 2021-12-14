@@ -1,17 +1,17 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import styled, { StyledComponent } from 'styled-components'
 import { useState } from 'react'
 // in 'react-router' ver.6 instead of useHystory
 import { useNavigate } from 'react-router'
 import LoginBackground from "../assets/LoginBackground.jpg"
-
+import { UserConstext } from '../component/UserContext'
 
 const Login=()=> {
     const [email,setEmail]=useState(localStorage.getItem('Current_User'));
     const [password,setPassword]=useState('');
     const navigate = useNavigate();
-
-
+    const {user, setUser} = useContext(UserConstext)
+    
     const signing_in=(e)=>{
         e.preventDefault();
         fetch("/api/sign-in", {
@@ -32,6 +32,7 @@ const Login=()=> {
             
             if(data.status === 200){
                localStorage.setItem('Token', data.token) 
+               setUser(data.token)
                navigate('/Profile');
 
             } 
