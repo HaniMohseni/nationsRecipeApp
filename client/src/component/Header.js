@@ -1,4 +1,5 @@
-//defining the backgroun image, Title of App in home and the logo for home component
+//defining the backgroun image, Title of App in home page and the logo for home component
+// the menu(links) are in Topbar
 
 
 import React from "react";

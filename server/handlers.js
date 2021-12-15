@@ -41,12 +41,14 @@ const { v4: uuidv4 } = require("uuid");
       const client = new MongoClient(MONGO_URI, options);
       await client.connect();
       const db = client.db("nationsRcipe");
+      // to check if this email address(user) is registerd before
       const registration = await db.collection("users").findOne(query);
       
       if (registration) {
         //if the user already exist
         return res.status(400).json({status: 400, msg: "This user already exists. Enter a new email address."});
       } else {
+        // adding the new user as a new record in to users collection
           const result = await db.collection("users").insertOne(newRec);
           
         res.status(200).json({ status: 200, msg: "Successfully Registered!", data: newRec });
@@ -62,7 +64,7 @@ const { v4: uuidv4 } = require("uuid");
   //====================================================//
   //signin endpoin
 
-  const signin = async (req, res) => {
+    const signin = async (req, res) => {
     const { email, plain_password} = req.body;
     const query = {email}; 
    
@@ -75,20 +77,20 @@ const { v4: uuidv4 } = require("uuid");
       const client = new MongoClient(MONGO_URI, options);
       await client.connect();
       const db = client.db("nationsRcipe");
+      //the email is the user(searching by email address)
       const user_found = await db.collection("users").findOne(query);
       
       if (!user_found) {
         //if the user already exist
         return res.status(400).json({status: 400, msg: "This user not found. Enter a valid email address."})
       } 
+      // hashing the password
       const match = await bcrypt.compare(``+plain_password, user_found.hashed_password)
       
       if(!match) {
         return res.status(401).json({status: 400, msg: "The Password is not correct. Enter a valid password."});
       }   
-      
-      
-      
+      // I need user email and the favorite foods for each user in FE, I'm sending this information to FE by a token     
       res.status(200).json({ status: 200, msg: "Successfully Logged In!", token: {email:email, favorite_meals:user_found.favorite_meals}});
       client.close();
       
@@ -98,11 +100,10 @@ const { v4: uuidv4 } = require("uuid");
 
   }
 
-
-
 //==========================================================//
-
 //adding a food into user's favorite meals
+
+
 const add2Favorite = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
   const { email, food } = req.body;
@@ -118,6 +119,7 @@ const add2Favorite = async (req, res) => {
     if (!user_found) {
       return res.status(400).json({status: 400, msg: "User not found"});
     } else {
+      // adding food to the favorite list for each user
          await db.collection("users").updateOne(query, {$push:{favorite_meals: food}});
       
         res.status(200).json({ status: 200, msg: "Successfully Saved!", token: {favorite_meals:user_found.favorite_meals} });
@@ -132,6 +134,7 @@ const add2Favorite = async (req, res) => {
 //=============================================//
 //removing a food from user's favorite meals
 
+
 const removefromFavorite = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
   const { email, food } = req.body;
@@ -141,11 +144,13 @@ const removefromFavorite = async (req, res) => {
     const client = new MongoClient(MONGO_URI, options);
     await client.connect();
     const db = client.db("nationsRcipe");
+    //finding user by email address(email=user)
     const user_found = await db.collection("users").findOne(query);
     
     if (!user_found) {
       return res.status(400).json({status: 400, msg: "User not found"});
     } else {
+      //after finding the user, deleting a food from favorite meals for user
         await db.collection("users").updateOne(query, {$pull:{ favorite_meals: {$in:[food]}}});
       
       res.status(200).json({ status: 200, msg: "Successfully Removed!", token: {favorite_meals:user_found.favorite_meals} });

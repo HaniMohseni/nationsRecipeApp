@@ -34,7 +34,6 @@ const Login=()=> {
             if(data.status === 200){
                setUser(data.token.email)
                setFavoritelst(data.token.favorite_meals)
-               console.log(favoritelst)
                navigate('/Profile');
 
             } 

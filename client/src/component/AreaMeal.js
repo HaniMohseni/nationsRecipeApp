@@ -43,6 +43,9 @@ const AreaMeal=()=> {
              <div className="container">
 
                  {
+                         //  Mymeal is all the fetched meals from External api 
+                    // by map, I'm sending each of these in to AreaMealItem component that
+                    //will show differnt feilds of meal like photo, recipe,... in predefined structure
                      (Mymeal==null)? <p>Not Found</p> : Mymeal.map((res)=>{
                          return(
                             <AreaMealItem data={res}/>

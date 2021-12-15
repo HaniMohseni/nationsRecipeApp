@@ -3,8 +3,6 @@
 // Likebtn onClick: is just for action on heart icon on the each food item in the page
 // IsLikedvar is a boolean when it's true we will have a insert a new food in favorit (/api/add2Favorite))
 // when it's false (dislike) we will have a delet (/api/removefromFavorite)
-
-
 import React, {useContext} from 'react'
 import { FiMessageCircle } from "react-icons/fi";
 import { FiRepeat } from "react-icons/fi";
@@ -14,10 +12,10 @@ import { UserConstext } from './UserContext';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-const RecipeAction=({Meal})=> {
+const FavoriteAction=({Meal})=> {
     //state for Dynamic rendering for like button
     const {user, setUser} = useContext(UserConstext)
-    const [IsLikedvar, setIsLikedvar] = useState(false);
+    const [IsLikedvar, setIsLikedvar] = useState(true);
     const {favoritelst, setFavoritelst} = useContext(UserConstext)
     
     useEffect(() => {
@@ -56,7 +54,8 @@ const RecipeAction=({Meal})=> {
    <Wrapper>
      
      <Likebtn onClick={LikeBtnClick}>
-     {IsLikedvar ? (<FiHeart style={{fill: 'red'}}/>):(<FiHeart style={{fill: 'white'}}/>)}
+     {/* two free icon  from https://fontawesome.com/ */}
+     {IsLikedvar ? (<i class="far fa-trash-alt"></i>):(<i class="fas fa-trash-alt"></i>)}
      </Likebtn>
      </Wrapper>
  )
@@ -75,4 +74,4 @@ const Likebtn = styled.button`
 `
 const Uploadbtn = styled.button`
 `
-export default RecipeAction
+export default FavoriteAction

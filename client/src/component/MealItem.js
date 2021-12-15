@@ -1,12 +1,8 @@
 //A template in which fields and fetched data from TheMeal api (in Meal component)
 // are embedded in this structure, getMeal is coming from Meal component and contains all the fields
-
-
 import React from 'react'
 import styled, { StyledComponent } from 'styled-components'
 import RecipeAction from './RecipeAction'
-
-
 const MealItem=(getMeal)=> {
     //console.log(getMeal.data)
     return (
@@ -28,13 +24,10 @@ const MealItem=(getMeal)=> {
                <div>  
                    <RecipeAction Meal={getMeal}/>
                </div>
-            
+
          </div>
-
-
      
         
     )
 }
-
 export default MealItem

@@ -1,4 +1,4 @@
-// Fetching dada based on "Ingredient" for search page /one of the options of radio buttons
+// Fetching dada based on "Main Ingredient" for search page /one of the options of radio buttons
 // sending the date to IngreMealItem (templet) component
 
 
@@ -42,6 +42,10 @@ const IngreMeal=()=> {
              <div className="container">
 
                  {
+
+                         //  Mymeal is all the fetched meals from External api 
+                    // by map, I'm sending each of these in to IngreMealItem component that
+                    //will show differnt feilds of meal like photo, recipe,... in predefined structure
                      (Mymeal==null)? <p>Not Found</p> : Mymeal.map((res)=>{
                          return(
                             <IngreMealItem data={res}/>

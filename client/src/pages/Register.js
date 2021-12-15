@@ -1,3 +1,6 @@
+//Registration page, adding user to users collection in DB 
+// by post method in fetch to the /api/new-user endpoint
+
 import React from 'react'
 import { useState } from 'react'
 import styled, { StyledComponent } from 'styled-components'
@@ -35,6 +38,8 @@ const Register=()=> {
             if(data.status === 200){
                 alert(data.msg)
                 localStorage.setItem('Current_User', email)
+                // after registration, directly going to the login page
+                // using react router dom ver.6 usehystory=navigate
                 navigate('/Login');
 
             } 
