@@ -11,6 +11,7 @@ const Login=()=> {
     const [password,setPassword]=useState('');
     const navigate = useNavigate();
     const {user, setUser} = useContext(UserConstext)
+    const {favoritelst, setFavoritelst} = useContext(UserConstext)
     
     const signing_in=(e)=>{
         e.preventDefault();
@@ -26,13 +27,13 @@ const Login=()=> {
         })
         .then((res) => res.json())
         .then((data) => {
-            if((data.status === 400)||(data.status === 400)){
+            if(data.status === 400){
                 alert(data.msg)    
             }
             
             if(data.status === 200){
-              
-               setUser(data.token)
+               setUser(data.token.email)
+               setFavoritelst(data.token.favorite_meals)
                navigate('/Profile');
 
             } 

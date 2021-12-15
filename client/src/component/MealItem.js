@@ -1,12 +1,13 @@
 import React from 'react'
 import styled, { StyledComponent } from 'styled-components'
+import RecipeAction from './RecipeAction'
 
 
 const MealItem=(getMeal)=> {
     //console.log(getMeal.data)
     return (
      
-           <div className="card">
+           <div className="card" >
                <img src={getMeal.data.strMealThumb}/>
                <div className="info">
                    <h2>{getMeal.data.strMeal}</h2>
@@ -20,8 +21,13 @@ const MealItem=(getMeal)=> {
                    <img src={getMeal.data.strMealThumb}/>
                    <a href={getMeal.data.strSource}>Watch video</a>
                </div>
+               <div>  
+                   <RecipeAction idMeal={getMeal.data.idMeal}/>
+               </div>
             
          </div>
+
+
      
         
     )

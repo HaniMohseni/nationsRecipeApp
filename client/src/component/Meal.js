@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
 import styled, { StyledComponent } from 'styled-components'
-import {injectGlobal} from  'styled-components';
 import MealItem from './MealItem'
 
 const Meal=()=> {

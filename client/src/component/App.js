@@ -21,12 +21,12 @@ import Logout from '../pages/Logout';
 function App() {
 
   const [user,setUser]= useState("")
-
+  const [favoritelst, setFavoritelst] = useState([])
 
   return (
     
     <Router >
-       <UserConstext.Provider value={{user, setUser}}>
+       <UserConstext.Provider value={{user, setUser, favoritelst, setFavoritelst}}>
       <Topbar/>
 
       <Routes>
