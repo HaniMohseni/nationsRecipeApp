@@ -14,7 +14,7 @@ import { UserConstext } from './UserContext';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-const RecipeAction=({idMeal})=> {
+const RecipeAction=({Meal})=> {
     //state for Dynamic rendering for like button
     const {user, setUser} = useContext(UserConstext)
     const [IsLikedvar, setIsLikedvar] = useState(false);
@@ -25,7 +25,7 @@ const RecipeAction=({idMeal})=> {
             //like=insert new
                 fetch("/api/add2Favorite", {
                 method: "POST",
-                body: JSON.stringify({email: user, food_id:idMeal}),
+                body: JSON.stringify({email: user, food:Meal}),
                 headers: {"Content-Type": "application/json"}})
                         .then((res) => res.json())
                         .then((data) => { 
@@ -37,7 +37,7 @@ const RecipeAction=({idMeal})=> {
                 //dislike=Delet
                 fetch("/api/removefromFavorite", {
                 method: "POST",
-                body: JSON.stringify({email: user, food_id:idMeal}),
+                body: JSON.stringify({email: user, food:Meal}),
                 headers: {"Content-Type": "application/json"}})
                     .then((res) => res.json())
                     .then((data) => { setFavoritelst(data.token.favorite_meals)})

@@ -26,7 +26,7 @@ const MealItem=(getMeal)=> {
                    <a href={getMeal.data.strSource}>Watch video</a>
                </div>
                <div>  
-                   <RecipeAction idMeal={getMeal.data.idMeal}/>
+                   <RecipeAction Meal={getMeal}/>
                </div>
             
          </div>

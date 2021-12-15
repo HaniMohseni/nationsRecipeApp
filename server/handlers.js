@@ -105,9 +105,9 @@ const { v4: uuidv4 } = require("uuid");
 //adding a food into user's favorite meals
 const add2Favorite = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
-  const { email, food_id } = req.body;
+  const { email, food } = req.body;
   const query = {email}; 
-  console.log('Emai:', email, 'ID:', food_id)
+  //console.log('Emai:', email, 'ID:', food_id)
 
   try {
     const client = new MongoClient(MONGO_URI, options);
@@ -118,7 +118,7 @@ const add2Favorite = async (req, res) => {
     if (!user_found) {
       return res.status(400).json({status: 400, msg: "User not found"});
     } else {
-         await db.collection("users").updateOne(query, {$push:{favorite_meals: food_id}});
+         await db.collection("users").updateOne(query, {$push:{favorite_meals: food}});
       
         res.status(200).json({ status: 200, msg: "Successfully Saved!", token: {favorite_meals:user_found.favorite_meals} });
       client.close();
@@ -134,7 +134,7 @@ const add2Favorite = async (req, res) => {
 
 const removefromFavorite = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
-  const { email, food_id } = req.body;
+  const { email, food } = req.body;
   const query = {email}; 
 
   try {
@@ -146,7 +146,7 @@ const removefromFavorite = async (req, res) => {
     if (!user_found) {
       return res.status(400).json({status: 400, msg: "User not found"});
     } else {
-        await db.collection("users").updateOne(query, {$pull:{ favorite_meals: {$in:[food_id]}}});
+        await db.collection("users").updateOne(query, {$pull:{ favorite_meals: {$in:[food]}}});
       
       res.status(200).json({ status: 200, msg: "Successfully Removed!", token: {favorite_meals:user_found.favorite_meals} });
       client.close();
