@@ -1,3 +1,10 @@
+// this component is imported to all the search component
+// to like or dislike each of the search results
+// Likebtn onClick: is just for action on heart icon on the each food item in the page
+// IsLikedvar is a boolean when it's true we will have a insert a new food in favorit (/api/add2Favorite))
+// when it's false (dislike) we will have a delet (/api/removefromFavorite)
+
+
 import React, {useContext} from 'react'
 import { FiMessageCircle } from "react-icons/fi";
 import { FiRepeat } from "react-icons/fi";
@@ -15,6 +22,7 @@ const RecipeAction=({idMeal})=> {
     
     useEffect(() => {
         if(IsLikedvar){
+            //like=insert new
                 fetch("/api/add2Favorite", {
                 method: "POST",
                 body: JSON.stringify({email: user, food_id:idMeal}),
@@ -26,6 +34,7 @@ const RecipeAction=({idMeal})=> {
                             })
                         .catch(err => {console.log("we have a problem " + err.message)});
             } else {
+                //dislike=Delet
                 fetch("/api/removefromFavorite", {
                 method: "POST",
                 body: JSON.stringify({email: user, food_id:idMeal}),

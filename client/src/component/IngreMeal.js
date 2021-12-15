@@ -1,3 +1,7 @@
+// Fetching dada based on "Ingredient" for search page /one of the options of radio buttons
+// sending the date to IngreMealItem (templet) component
+
+
 import React from 'react'
 import { useState } from 'react';
 import styled, { StyledComponent } from 'styled-components'

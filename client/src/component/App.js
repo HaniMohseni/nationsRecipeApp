@@ -1,3 +1,7 @@
+// All the Routs
+////I'm using react-router-dom ver.6 
+
+
 import React, {useContext} from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 

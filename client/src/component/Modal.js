@@ -2,7 +2,8 @@ import React from 'react'
 import { StyledComponent } from 'styled-components';
 import styled from 'styled-components';
 
-
+// to open and close the full recipe in random meal component by clicking on the button
+// showModal is a boolean an arguman from random meal 
 function Modal({showModal,setShowModal, strInstructions,strMealThumb}) {
     return (
         <>

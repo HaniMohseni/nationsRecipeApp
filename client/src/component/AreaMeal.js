@@ -1,3 +1,7 @@
+// Fetching dada based on "Area" for search page /this component is one of the options of radio buttons
+// sending the date to AreaMealItem (templet) component
+
+
 import React from 'react'
 import { useState } from 'react';
 import styled, { StyledComponent } from 'styled-components'

@@ -1,3 +1,7 @@
+//A template in which fields and fetched data from TheMeal api (in IngreaMeal component)
+// are embedded in this structure, getMeal is coming from IngreMeal component and contains all the fields
+
+
 import React from 'react'
 import styled, { StyledComponent } from 'styled-components'
 

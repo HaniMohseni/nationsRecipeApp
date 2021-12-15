@@ -1,3 +1,6 @@
+//All the links on the top of all pages(menu)
+//I'm using react-router-dom ver.6 
+
 import React, {useContext} from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';

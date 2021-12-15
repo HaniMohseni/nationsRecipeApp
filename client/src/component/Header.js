@@ -1,3 +1,6 @@
+//defining the backgroun image, Title of App in home and the logo for home component
+
+
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled, { StyledComponent } from "styled-components";

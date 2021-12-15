@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import { UserConstext } from '../component/UserContext';
 
 const Home=()=> {
-    const {user, setUser} = useContext(UserConstext)
+    //const {user, setUser} = useContext(UserConstext)
+    //setUser(null)
     return (
         <div>
             <Header/>

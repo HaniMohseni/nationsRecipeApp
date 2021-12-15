@@ -7,7 +7,7 @@ import styled, { StyledComponent } from 'styled-components'
 import RecipeAction from './RecipeAction'
 
 
-const MealItem=(getMeal)=> {
+const FavoriteMealItem=(getMeal)=> {
     //console.log(getMeal.data)
     return (
      
@@ -37,4 +37,4 @@ const MealItem=(getMeal)=> {
     )
 }
 
-export default MealItem
+export default FavoriteMealItem

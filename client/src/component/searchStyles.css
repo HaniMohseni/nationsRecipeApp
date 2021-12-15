@@ -1,7 +1,6 @@
-  /* This css component is just for search parts based on Area or based on name of food
+  /* This css component is just for search parts based on Area, name of foods or ingredient
   and I imported that to the search page, where I have two search components Some styles 
-  couldn't be implemented with styled-component. The rest of the styles are
-  implemented by styled component */
+  is imported in tree search component */
 
 
 *{
@@ -136,6 +135,8 @@
     background: linear-gradient(to left, rgba(204,255,51,0.5),rgba(204,255,51,0.5));
     border-radius: 8px;
     box-shadow: 0.7 px 12px rgba(204,255,51,0.5);
+    /* box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15); */
+
     overflow: auto;
     box-sizing: border-box;
     position:relative;
@@ -229,8 +230,6 @@
   display: block;
     text-align: center;
 }
-
-
 
 
 

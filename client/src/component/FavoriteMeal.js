@@ -5,7 +5,7 @@ import { useState } from 'react';
 import styled, { StyledComponent } from 'styled-components'
 import MealItem from './MealItem'
 
-const Meal=()=> {
+const FavoriteMeal=()=> {
     const[search,setSearch]=useState("");
     const[Mymeal,setMeal]=useState([]);
     
@@ -56,4 +56,4 @@ const Meal=()=> {
 
 
 
-export default Meal
+export default FavoriteMeal
