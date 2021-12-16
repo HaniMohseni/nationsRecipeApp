@@ -121,7 +121,9 @@ const add2Favorite = async (req, res) => {
     } else {
       // adding food to the favorite list for each user
          await db.collection("users").updateOne(query, {$push:{favorite_meals: food}});
-      
+        
+        const user_found = await db.collection("users").findOne(query);
+
         res.status(200).json({ status: 200, msg: "Successfully Saved!", token: {favorite_meals:user_found.favorite_meals} });
       client.close();
     }
@@ -153,7 +155,11 @@ const removefromFavorite = async (req, res) => {
       //after finding the user, deleting a food from favorite meals for user
         await db.collection("users").updateOne(query, {$pull:{ favorite_meals: {$in:[food]}}});
       
-      res.status(200).json({ status: 200, msg: "Successfully Removed!", token: {favorite_meals:user_found.favorite_meals} });
+        const user_found = await db.collection("users").findOne(query);
+
+        res.status(200).json({ status: 200, msg: "Successfully Removed!", token: {favorite_meals:user_found.favorite_meals} });
+      
+      
       client.close();
     }
   } catch (err) {

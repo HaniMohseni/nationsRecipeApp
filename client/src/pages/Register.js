@@ -19,6 +19,10 @@ const Register=()=> {
 
     const registerUser=(e)=>{
         e.preventDefault();
+        if (password!=Cpassword){
+            alert("Your entered passwords don't match. Please try again!")
+            return true
+        }
         fetch("/api/new-user", {
             method: "POST",
             body: JSON.stringify({
@@ -75,7 +79,6 @@ const Register=()=> {
 
              </Registerform>
 
-                <LoginRegisterButton>Login</LoginRegisterButton>
             
         </Registerdiv>
     )

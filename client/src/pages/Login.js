@@ -61,7 +61,6 @@ const Login=()=> {
 
              </Loginform>
 
-                <LoginRegisterButton>Register</LoginRegisterButton>
             
         </Logindiv>
     )

@@ -6,6 +6,7 @@ import React from 'react'
 import styled, { StyledComponent } from 'styled-components'
 import RecipeAction from './RecipeAction'
 import FavoriteAction from './FavoriteAction'
+import "./searchStyles.css"
 
 const FavoriteMealItem=(getMeal)=> {
     //console.log(getMeal.data)
@@ -26,7 +27,7 @@ const FavoriteMealItem=(getMeal)=> {
                    <a href={getMeal.data.strSource}>Watch video</a>
                </div>
                <div>  
-                   <FavoriteAction idMeal={getMeal}/>
+                   <FavoriteAction Meal={getMeal}/>
                </div>
             
          </div>

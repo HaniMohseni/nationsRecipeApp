@@ -15,47 +15,22 @@ import { useEffect } from 'react';
 const FavoriteAction=({Meal})=> {
     //state for Dynamic rendering for like button
     const {user, setUser} = useContext(UserConstext)
-    const [IsLikedvar, setIsLikedvar] = useState(true);
     const {favoritelst, setFavoritelst} = useContext(UserConstext)
     
-    useEffect(() => {
-        if(IsLikedvar){
-            //like=insert new
-                fetch("/api/add2Favorite", {
-                method: "POST",
-                body: JSON.stringify({email: user, food:Meal}),
-                headers: {"Content-Type": "application/json"}})
-                        .then((res) => res.json())
-                        .then((data) => { 
-                            if(data.status === 400){alert(data.msg)}
-                            if(data.status === 200){setFavoritelst(data.token.favorite_meals)} 
-                            })
-                        .catch(err => {console.log("we have a problem " + err.message)});
-            } else {
-                //dislike=Delet
-                fetch("/api/removefromFavorite", {
-                method: "POST",
-                body: JSON.stringify({email: user, food:Meal}),
-                headers: {"Content-Type": "application/json"}})
-                    .then((res) => res.json())
-                    .then((data) => { setFavoritelst(data.token.favorite_meals)})
-                    .catch(err => {console.log("we have a problem " + err.message)});
-                   }
-        return () => {
-            console.log('Something went wrong!')
-        }
-    }, [IsLikedvar])
-    const LikeBtnClick = () => {
-        setIsLikedvar(!IsLikedvar);
-       // console.log('#############',IsLikedvar)
-       
+    const DelBtnClick = () => {
+        fetch("/api/removefromFavorite", {
+        method: "POST",
+        body: JSON.stringify({email: user, food:Meal}),
+        headers: {"Content-Type": "application/json"}})
+            .then((res) => res.json())
+            .then((data) => { setFavoritelst(data.token.favorite_meals)})
+            .catch(err => {console.log("we have a problem " + err.message)});
     }
  return(
    <Wrapper>
      
-     <Likebtn onClick={LikeBtnClick}>
-     {/* two free icon  from https://fontawesome.com/ */}
-     {IsLikedvar ? (<i class="far fa-trash-alt"></i>):(<i class="fas fa-trash-alt"></i>)}
+     <Likebtn onClick={DelBtnClick}>
+     <i class="fas fa-trash-alt"></i>
      </Likebtn>
      </Wrapper>
  )
