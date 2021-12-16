@@ -4,26 +4,62 @@
 import React, {useContext} from 'react'
 import { UserConstext } from '../component/UserContext'
 import FavoriteMealItem from '../component/FavoriteMealItem'
+import styled from 'styled-components'
+import "../component/searchStyles.css"
+ 
+
 
 const Profile=()=> {
     const {favoritelst, setFavoritelst} = useContext(UserConstext)
 
    
     return (
+        
         <div>
-           You have {favoritelst.length} meals in your list.
+            
+            <Topdiv> 
+                
+               <i class="fas fa-utensils"></i>
+               You have {favoritelst.length} meals in your list.
+           </Topdiv>
 
-           
-           <div>
+           <Containdiv>
                { 
-               (favoritelst.length==0)? <p>Nothing Found to Display ... </p> : favoritelst.map((res)=>{
+               (favoritelst.length==0)? <p>Nothing found to display ... </p> : favoritelst.map((res)=>{
                    return(<FavoriteMealItem data={res.data}/>)})
                }
         
-            </div> 
+            </Containdiv> 
 
         </div>
 
     )
 }
+
+
+const Containdiv= styled.div`
+    width: 100vw;
+    margin: 0;
+    margin:0 auto;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 0;
+`
+
+const Topdiv=styled.div`
+
+font-family: 'poppins', sans-serif;
+color:#444;
+text-align: center;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+
+`
+
 export default Profile
