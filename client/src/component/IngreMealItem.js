@@ -19,8 +19,7 @@ const IngreMealItem=(getMeal)=> {
                <div className="recipe">
                <h2>Recipe</h2>
                      <p>To see the recipe, please search the name of the food</p>
-                
-                   
+                                   
                </div>
             
          </div>

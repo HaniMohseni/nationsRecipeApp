@@ -20,7 +20,7 @@ const Register=()=> {
     const registerUser=(e)=>{
         e.preventDefault();
         if (password!=Cpassword){
-            alert("Your entered passwords don't match. Please try again!")
+            alert("Your entered passwords doesn't match. Please try again!")
             return true
         }
         fetch("/api/new-user", {
@@ -91,7 +91,6 @@ flex-direction:column;
 align-items:center;
 justify-content:center;
 background-image: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,.8) 100%), url(${LoginBackground});
-
 
 `
 

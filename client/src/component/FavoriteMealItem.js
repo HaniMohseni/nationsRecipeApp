@@ -21,7 +21,8 @@ const FavoriteMealItem=(getMeal)=> {
                <div className="recipe">
                <h2>Recipe</h2>
                      <p>{getMeal.data.strInstructions}</p>
-                
+               
+
                    
                    <img src={getMeal.data.strMealThumb}/>
                    <a href={getMeal.data.strSource}>Watch video</a>
